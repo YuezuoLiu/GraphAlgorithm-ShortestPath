@@ -1,0 +1,203 @@
+\hypertarget{_utils_8hh}{}\doxysection{/\+Users/liuyuezuo/water\+\_\+drop\+\_\+plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/\+Assignment\+\_\+3/include/\+Utils.hh File Reference}
+\label{_utils_8hh}\index{/Users/liuyuezuo/water\_drop\_plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/Assignment\_3/include/Utils.hh@{/Users/liuyuezuo/water\_drop\_plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/Assignment\_3/include/Utils.hh}}
+
+
+containing some utility functions.  
+
+
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_utils_8hh_a6dd917c1d9a13141735d7cca95f6d7b7}{check\+Loc\+Valid}} (int row, int col, int map\+\_\+height, int map\+\_\+width)
+\begin{DoxyCompactList}\small\item\em check if a coordinate is valid in given map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_utils_8hh_a8b2cb4cc3fa8ec9ec3107b767fcae1bb}{map\+Loc\+To\+Array\+Idx}} (int row, int col, int map\+\_\+width)
+\begin{DoxyCompactList}\small\item\em transforms map coordinate to array index. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{_utils_8hh_a453ac874bc09720a81f1eaa284303c14}{array\+Idx\+To\+Map\+Loc}} (int array\+Idx, int map\+\_\+width)
+\begin{DoxyCompactList}\small\item\em transforms array index to map coordinate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_utils_8hh_ab355862290e39a66901d87680382a083}{get\+Edge\+Len\+From\+Adj}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, double $>$ $>$ $>$ \&adjacency\+\_\+list, int start, int end)
+\begin{DoxyCompactList}\small\item\em Get the Edge Length From adjacency list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_utils_8hh_a1c3c73a72a89b92826cd39f41f7c1ff0}{update\+Dist}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, double $>$ $>$ $>$ \&adjacency\+\_\+list, std\+::set$<$ int $>$ \&unfinded\+\_\+nodes, std\+::vector$<$ int $>$ \&pre\+\_\+node, std\+::vector$<$ double $>$ \&dist, int node\+\_\+idx)
+\begin{DoxyCompactList}\small\item\em update distance array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_utils_8hh_a3960fd406f4d543fcf2037f160786965}{find\+Next\+Node}} (std\+::vector$<$ double $>$ \&dist, std\+::set$<$ int $>$ \&unfinded\+\_\+nodes)
+\begin{DoxyCompactList}\small\item\em finds next node. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_utils_8hh_ac93dd15896ed9d0b84c823b4bee890dd}{dijkstra\+Path}} (std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, double $>$ $>$ $>$ \&adjacency\+\_\+list, std\+::vector$<$ int $>$ \&path, int start, int dest)
+\begin{DoxyCompactList}\small\item\em dijkstra shortest path alogrithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+containing some utility functions. 
+
+\begin{DoxyAuthor}{Author}
+Yuezuo Liu (\href{mailto:522204435@qq.com}{\texttt{ 522204435@qq.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/08-\/04
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2022 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_utils_8hh_a453ac874bc09720a81f1eaa284303c14}\label{_utils_8hh_a453ac874bc09720a81f1eaa284303c14}} 
+\index{Utils.hh@{Utils.hh}!arrayIdxToMapLoc@{arrayIdxToMapLoc}}
+\index{arrayIdxToMapLoc@{arrayIdxToMapLoc}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{arrayIdxToMapLoc()}{arrayIdxToMapLoc()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ array\+Idx\+To\+Map\+Loc (\begin{DoxyParamCaption}\item[{int}]{array\+Idx,  }\item[{int}]{map\+\_\+width }\end{DoxyParamCaption})}
+
+
+
+transforms array index to map coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array\+Idx} & array index in adjacency list \\
+\hline
+{\em map\+\_\+width} & map\textquotesingle{}s coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$int, int$>$ a std\+::pair containing (row coordinate, column coordinate). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hh_a6dd917c1d9a13141735d7cca95f6d7b7}\label{_utils_8hh_a6dd917c1d9a13141735d7cca95f6d7b7}} 
+\index{Utils.hh@{Utils.hh}!checkLocValid@{checkLocValid}}
+\index{checkLocValid@{checkLocValid}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{checkLocValid()}{checkLocValid()}}
+{\footnotesize\ttfamily bool check\+Loc\+Valid (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{map\+\_\+height,  }\item[{int}]{map\+\_\+width }\end{DoxyParamCaption})}
+
+
+
+check if a coordinate is valid in given map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & row coordinate. \\
+\hline
+{\em col} & column coordinate. \\
+\hline
+{\em map\+\_\+height} & map\textquotesingle{}s height. \\
+\hline
+{\em map\+\_\+width} & map\textquotesingle{}s width. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if coordinate is valid. 
+
+false if coordinate is invalid. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hh_ac93dd15896ed9d0b84c823b4bee890dd}\label{_utils_8hh_ac93dd15896ed9d0b84c823b4bee890dd}} 
+\index{Utils.hh@{Utils.hh}!dijkstraPath@{dijkstraPath}}
+\index{dijkstraPath@{dijkstraPath}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{dijkstraPath()}{dijkstraPath()}}
+{\footnotesize\ttfamily double dijkstra\+Path (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, double $>$ $>$ $>$ \&}]{adjacency\+\_\+list,  }\item[{std\+::vector$<$ int $>$ \&}]{path,  }\item[{int}]{start,  }\item[{int}]{dest }\end{DoxyParamCaption})}
+
+
+
+dijkstra shortest path alogrithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adjacency\+\_\+list} & adjacency list. \\
+\hline
+{\em path} & path containg shortest path. \\
+\hline
+{\em start} & start vertex. \\
+\hline
+{\em dest} & destination vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double shortest path length. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hh_a3960fd406f4d543fcf2037f160786965}\label{_utils_8hh_a3960fd406f4d543fcf2037f160786965}} 
+\index{Utils.hh@{Utils.hh}!findNextNode@{findNextNode}}
+\index{findNextNode@{findNextNode}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{findNextNode()}{findNextNode()}}
+{\footnotesize\ttfamily int find\+Next\+Node (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{dist,  }\item[{std\+::set$<$ int $>$ \&}]{unfinded\+\_\+nodes }\end{DoxyParamCaption})}
+
+
+
+finds next node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & distance array. \\
+\hline
+{\em unfinded\+\_\+nodes} & nodes whose distance don\textquotesingle{}t have. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int found node index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hh_ab355862290e39a66901d87680382a083}\label{_utils_8hh_ab355862290e39a66901d87680382a083}} 
+\index{Utils.hh@{Utils.hh}!getEdgeLenFromAdj@{getEdgeLenFromAdj}}
+\index{getEdgeLenFromAdj@{getEdgeLenFromAdj}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{getEdgeLenFromAdj()}{getEdgeLenFromAdj()}}
+{\footnotesize\ttfamily double get\+Edge\+Len\+From\+Adj (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, double $>$ $>$ $>$ \&}]{adjacency\+\_\+list,  }\item[{int}]{start,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+Get the Edge Length From adjacency list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adjacency\+\_\+list} & adjacency list. \\
+\hline
+{\em start} & start index. \\
+\hline
+{\em end} & end index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double edge length from start to end. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hh_a8b2cb4cc3fa8ec9ec3107b767fcae1bb}\label{_utils_8hh_a8b2cb4cc3fa8ec9ec3107b767fcae1bb}} 
+\index{Utils.hh@{Utils.hh}!mapLocToArrayIdx@{mapLocToArrayIdx}}
+\index{mapLocToArrayIdx@{mapLocToArrayIdx}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{mapLocToArrayIdx()}{mapLocToArrayIdx()}}
+{\footnotesize\ttfamily int map\+Loc\+To\+Array\+Idx (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{map\+\_\+width }\end{DoxyParamCaption})}
+
+
+
+transforms map coordinate to array index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & row coordinate. \\
+\hline
+{\em col} & column coordinate. \\
+\hline
+{\em map\+\_\+width} & map\textquotesingle{}s width. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int array index in adjacency list. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hh_a1c3c73a72a89b92826cd39f41f7c1ff0}\label{_utils_8hh_a1c3c73a72a89b92826cd39f41f7c1ff0}} 
+\index{Utils.hh@{Utils.hh}!updateDist@{updateDist}}
+\index{updateDist@{updateDist}!Utils.hh@{Utils.hh}}
+\doxysubsubsection{\texorpdfstring{updateDist()}{updateDist()}}
+{\footnotesize\ttfamily void update\+Dist (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, double $>$ $>$ $>$ \&}]{adjacency\+\_\+list,  }\item[{std\+::set$<$ int $>$ \&}]{unfinded\+\_\+nodes,  }\item[{std\+::vector$<$ int $>$ \&}]{pre\+\_\+node,  }\item[{std\+::vector$<$ double $>$ \&}]{dist,  }\item[{int}]{node\+\_\+idx }\end{DoxyParamCaption})}
+
+
+
+update distance array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adjacency\+\_\+list} & adjacency list \\
+\hline
+{\em unfinded\+\_\+nodes} & nodes whose distance don\textquotesingle{}t have. \\
+\hline
+{\em pre\+\_\+node} & contraing the precursor in shortest path at present. \\
+\hline
+{\em dist} & distance from start vertex to all nodes. \\
+\hline
+{\em node\+\_\+idx} & newly got node index. \\
+\hline
+\end{DoxyParams}

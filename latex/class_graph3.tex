@@ -1,0 +1,133 @@
+\hypertarget{class_graph3}{}\doxysection{Graph3 Class Reference}
+\label{class_graph3}\index{Graph3@{Graph3}}
+
+
+class \mbox{\hyperlink{class_graph3}{Graph3}} using adjcency list.  
+
+
+
+
+{\ttfamily \#include $<$Graph3.\+hh$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph3_abb1e30d26d77b0457be205bf3ce306ad}{Graph3}} ()
+\item 
+\mbox{\hyperlink{class_graph3_af7aa46da796650c85a8f3ef8a1cb920b}{$\sim$\+Graph3}} ()=default
+\item 
+bool \mbox{\hyperlink{class_graph3_ae89cc5de15cf2586b5b9b1cead06b413}{load\+Map}} (char file\+\_\+name\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em loads map from file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph3_a7ab0051ff9152ba59127f234c7b4894a}{construct\+Adjacency\+List}} ()
+\begin{DoxyCompactList}\small\item\em construct adjacency list given after loading a map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph3_a43a48b6e2fdd6d16a6b8816e042ee9d5}{shortest\+Path}} (int start\+\_\+row, int start\+\_\+col, int end\+\_\+row, int end\+\_\+col)
+\begin{DoxyCompactList}\small\item\em print shortest path from start to destination. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph3_aeb3008dc36c79cf56f68857e8c42fffc}{show\+Map}} ()
+\begin{DoxyCompactList}\small\item\em print loaded map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph3_a111863481d297c274ffb2ca017f77bfb}{show\+Adjacency\+List}} ()
+\begin{DoxyCompactList}\small\item\em print adjacency list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class \mbox{\hyperlink{class_graph3}{Graph3}} using adjcency list. 
+
+class \mbox{\hyperlink{class_graph3}{Graph3}} using adjacency list. loads a map from file, and computes shortest path from given start to destination. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph3_abb1e30d26d77b0457be205bf3ce306ad}\label{class_graph3_abb1e30d26d77b0457be205bf3ce306ad}} 
+\index{Graph3@{Graph3}!Graph3@{Graph3}}
+\index{Graph3@{Graph3}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{Graph3()}{Graph3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph3}{Graph3\+::\+Graph3}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_graph3_af7aa46da796650c85a8f3ef8a1cb920b}\label{class_graph3_af7aa46da796650c85a8f3ef8a1cb920b}} 
+\index{Graph3@{Graph3}!````~Graph3@{$\sim$Graph3}}
+\index{````~Graph3@{$\sim$Graph3}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{$\sim$Graph3()}{~Graph3()}}
+{\footnotesize\ttfamily Graph3\+::$\sim$\+Graph3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph3_a7ab0051ff9152ba59127f234c7b4894a}\label{class_graph3_a7ab0051ff9152ba59127f234c7b4894a}} 
+\index{Graph3@{Graph3}!constructAdjacencyList@{constructAdjacencyList}}
+\index{constructAdjacencyList@{constructAdjacencyList}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{constructAdjacencyList()}{constructAdjacencyList()}}
+{\footnotesize\ttfamily bool Graph3\+::construct\+Adjacency\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+construct adjacency list given after loading a map. 
+
+\begin{DoxyReturn}{Returns}
+true if construction successes. 
+
+false if construction fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph3_ae89cc5de15cf2586b5b9b1cead06b413}\label{class_graph3_ae89cc5de15cf2586b5b9b1cead06b413}} 
+\index{Graph3@{Graph3}!loadMap@{loadMap}}
+\index{loadMap@{loadMap}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{loadMap()}{loadMap()}}
+{\footnotesize\ttfamily bool Graph3\+::load\+Map (\begin{DoxyParamCaption}\item[{char}]{file\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+loads map from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & file name to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if load successes. 
+
+false if load fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph3_a43a48b6e2fdd6d16a6b8816e042ee9d5}\label{class_graph3_a43a48b6e2fdd6d16a6b8816e042ee9d5}} 
+\index{Graph3@{Graph3}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}}
+{\footnotesize\ttfamily void Graph3\+::shortest\+Path (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+row,  }\item[{int}]{start\+\_\+col,  }\item[{int}]{end\+\_\+row,  }\item[{int}]{end\+\_\+col }\end{DoxyParamCaption})}
+
+
+
+print shortest path from start to destination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+row} & row coordinate of start. \\
+\hline
+{\em start\+\_\+col} & column coordinate of start. \\
+\hline
+{\em end\+\_\+row} & row coordinate of destination. \\
+\hline
+{\em end\+\_\+col} & column coordinate of destination. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph3_a111863481d297c274ffb2ca017f77bfb}\label{class_graph3_a111863481d297c274ffb2ca017f77bfb}} 
+\index{Graph3@{Graph3}!showAdjacencyList@{showAdjacencyList}}
+\index{showAdjacencyList@{showAdjacencyList}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{showAdjacencyList()}{showAdjacencyList()}}
+{\footnotesize\ttfamily void Graph3\+::show\+Adjacency\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+print adjacency list. 
+
+\mbox{\Hypertarget{class_graph3_aeb3008dc36c79cf56f68857e8c42fffc}\label{class_graph3_aeb3008dc36c79cf56f68857e8c42fffc}} 
+\index{Graph3@{Graph3}!showMap@{showMap}}
+\index{showMap@{showMap}!Graph3@{Graph3}}
+\doxysubsubsection{\texorpdfstring{showMap()}{showMap()}}
+{\footnotesize\ttfamily void Graph3\+::show\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+print loaded map. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/liuyuezuo/water\+\_\+drop\+\_\+plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/\+Assignment\+\_\+3/include/\mbox{\hyperlink{_graph3_8hh}{Graph3.\+hh}}\item 
+/\+Users/liuyuezuo/water\+\_\+drop\+\_\+plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/\+Assignment\+\_\+3/src/\mbox{\hyperlink{_graph3_8cc}{Graph3.\+cc}}\end{DoxyCompactItemize}

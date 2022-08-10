@@ -1,0 +1,115 @@
+\hypertarget{_utils_8hh_source}{}\doxysection{Utils.\+hh}
+\label{_utils_8hh_source}\index{/Users/liuyuezuo/water\_drop\_plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/Assignment\_3/include/Utils.hh@{/Users/liuyuezuo/water\_drop\_plan/i-\/training-\/coding/codes/2022-\/07/刘悦佐/Assignment\_3/include/Utils.hh}}
+\mbox{\hyperlink{_utils_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef CPP\_PROGRAM\_ASSIGNMENT3\_INCLUDE\_UTILS\_HH\_}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define CPP\_PROGRAM\_ASSIGNMENT3\_INCLUDE\_UTILS\_HH\_}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{28 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_utils_8hh_a6dd917c1d9a13141735d7cca95f6d7b7}{checkLocValid}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{int} map\_height, \textcolor{keywordtype}{int} map\_width)}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} (row >= 0 \&\& row < map\_height \&\& col >= 0 \&\& col < map\_width)}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{32     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{34 \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{44 \textcolor{keywordtype}{int} \mbox{\hyperlink{_utils_8hh_a8b2cb4cc3fa8ec9ec3107b767fcae1bb}{mapLocToArrayIdx}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{int} map\_width)}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{return} row * map\_width + col;}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{56 std::pair<int, int> \mbox{\hyperlink{_utils_8hh_a453ac874bc09720a81f1eaa284303c14}{arrayIdxToMapLoc}}(\textcolor{keywordtype}{int} arrayIdx, \textcolor{keywordtype}{int} map\_width)}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     \textcolor{keywordflow}{return} std::pair<int, int>(arrayIdx / map\_width, arrayIdx \% map\_width);}
+\DoxyCodeLine{59 \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{69 \textcolor{keywordtype}{double} \mbox{\hyperlink{_utils_8hh_ab355862290e39a66901d87680382a083}{getEdgeLenFromAdj}}(std::vector<std::vector<std::pair<int, double>>>\& adjacency\_list, \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} end)}
+\DoxyCodeLine{70 \{}
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} (start == end)}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{73     \textcolor{keywordflow}{for} (std::pair<int, double> edge : adjacency\_list[start]) \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{if} (edge.first == end)}
+\DoxyCodeLine{75             \textcolor{keywordflow}{return} edge.second;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} 10000.0;  \textcolor{comment}{// 不可达}}
+\DoxyCodeLine{78 \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{89 \textcolor{keywordtype}{void} \mbox{\hyperlink{_utils_8hh_a1c3c73a72a89b92826cd39f41f7c1ff0}{updateDist}}(std::vector<std::vector<std::pair<int, double>>>\& adjacency\_list, std::set<int>\& unfinded\_nodes, std::vector<int>\& pre\_node,}
+\DoxyCodeLine{90                 std::vector<double>\& dist, \textcolor{keywordtype}{int} node\_idx)}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} unfinded\_node\_idx : unfinded\_nodes) \{}
+\DoxyCodeLine{93         \textcolor{keywordtype}{double} edge\_len = \mbox{\hyperlink{_utils_8hh_ab355862290e39a66901d87680382a083}{getEdgeLenFromAdj}}(adjacency\_list, node\_idx, unfinded\_node\_idx);}
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} (dist[node\_idx] + edge\_len < dist[unfinded\_node\_idx]) \{  \textcolor{comment}{// start节点经过node\_idx中转到达unfinded\_node\_idx更短}}
+\DoxyCodeLine{95             dist[unfinded\_node\_idx] = dist[node\_idx] + edge\_len;}
+\DoxyCodeLine{96             pre\_node[unfinded\_node\_idx] = node\_idx;  \textcolor{comment}{// 被更新距离节点前驱更新为node\_idx}}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{99 \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{108 \textcolor{keywordtype}{int} \mbox{\hyperlink{_utils_8hh_a3960fd406f4d543fcf2037f160786965}{findNextNode}}(std::vector<double>\& dist, std::set<int>\& unfinded\_nodes)}
+\DoxyCodeLine{109 \{}
+\DoxyCodeLine{110     \textcolor{keywordtype}{int} nearest\_node\_idx;}
+\DoxyCodeLine{111     \textcolor{keywordtype}{double} min\_dist = 10000.0;}
+\DoxyCodeLine{112     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} unfinded\_node\_idx : unfinded\_nodes) \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} (dist[unfinded\_node\_idx] < min\_dist) \{}
+\DoxyCodeLine{114             min\_dist = dist[unfinded\_node\_idx];}
+\DoxyCodeLine{115             nearest\_node\_idx = unfinded\_node\_idx;}
+\DoxyCodeLine{116         \}}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118     \textcolor{keywordflow}{return} nearest\_node\_idx;}
+\DoxyCodeLine{119 \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{130 \textcolor{keywordtype}{double} \mbox{\hyperlink{_utils_8hh_ac93dd15896ed9d0b84c823b4bee890dd}{dijkstraPath}}(std::vector<std::vector<std::pair<int, double>>>\& adjacency\_list, std::vector<int>\& path, \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} dest)}
+\DoxyCodeLine{131 \{}
+\DoxyCodeLine{132     printf(\textcolor{stringliteral}{"{}dijkstra finding shortest path from \%d to \%d......\(\backslash\)n"{}}, start, dest);}
+\DoxyCodeLine{133     \textcolor{keywordflow}{if} (start == dest) \{}
+\DoxyCodeLine{134         path.push\_back(start);}
+\DoxyCodeLine{135         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     std::set<int> finded\_nodes;}
+\DoxyCodeLine{139     std::set<int> unfinded\_nodes;}
+\DoxyCodeLine{140     finded\_nodes.insert(start);}
+\DoxyCodeLine{141     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} vertex\_idx = 0; vertex\_idx < adjacency\_list.size(); ++vertex\_idx) \{  \textcolor{comment}{// init two sets}}
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} (vertex\_idx != start \&\& adjacency\_list[vertex\_idx].size() > 0)}
+\DoxyCodeLine{143             unfinded\_nodes.insert(vertex\_idx);}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     std::vector<int> pre\_node(adjacency\_list.size());  \textcolor{comment}{// record pre\_node index in shortest path}}
+\DoxyCodeLine{147     std::vector<double> dist(adjacency\_list.size(), 10000.0);}
+\DoxyCodeLine{148     \textcolor{keywordflow}{for} (std::pair<int, double> edge : adjacency\_list[start]) \{  \textcolor{comment}{// init distance from start to others and pre\_nodes array;}}
+\DoxyCodeLine{149         dist[edge.first] = edge.second;}
+\DoxyCodeLine{150         pre\_node[edge.first] = start;}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{keywordtype}{int} newly\_finded\_node;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{156         newly\_finded\_node = \mbox{\hyperlink{_utils_8hh_a3960fd406f4d543fcf2037f160786965}{findNextNode}}(dist, unfinded\_nodes);}
+\DoxyCodeLine{157         printf(\textcolor{stringliteral}{"{}find node \%2d, dist = \%4.2lf\(\backslash\)n"{}}, newly\_finded\_node, dist[newly\_finded\_node]);}
+\DoxyCodeLine{158         \textcolor{keywordflow}{if} (newly\_finded\_node == dest)}
+\DoxyCodeLine{159             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         finded\_nodes.insert(newly\_finded\_node);}
+\DoxyCodeLine{162         unfinded\_nodes.erase(newly\_finded\_node);}
+\DoxyCodeLine{163         \mbox{\hyperlink{_utils_8hh_a1c3c73a72a89b92826cd39f41f7c1ff0}{updateDist}}(adjacency\_list, unfinded\_nodes, pre\_node, dist, newly\_finded\_node);}
+\DoxyCodeLine{164     \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     path.push\_back(dest);}
+\DoxyCodeLine{167     \textcolor{keywordtype}{int} node\_idx = dest;}
+\DoxyCodeLine{168     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{169         node\_idx = pre\_node[node\_idx];}
+\DoxyCodeLine{170         path.push\_back(node\_idx);}
+\DoxyCodeLine{171         \textcolor{keywordflow}{if} (node\_idx == start)}
+\DoxyCodeLine{172             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174     \textcolor{keywordflow}{return} dist[dest];}
+\DoxyCodeLine{175 \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
